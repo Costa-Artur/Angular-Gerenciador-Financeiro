@@ -3,12 +3,14 @@ import { Balance } from "./components/balance/balance";
 import { TransactionItem } from "./components/transaction-item/transaction-item";
 import { Transaction } from '../../shared/transaction/interfaces/transaction';
 import { TransactionType } from '../../shared/transaction/enums/transaction-type';
+import { NoTransactions } from "./components/no-transactions/no-transactions";
 
 @Component({
   selector: 'app-home',
   imports: [
     Balance,
-    TransactionItem
+    TransactionItem,
+    NoTransactions
 ],
   templateUrl: './home.html',
   styleUrl: './home.scss',
@@ -16,10 +18,10 @@ import { TransactionType } from '../../shared/transaction/enums/transaction-type
 export class Home {
 
   transactions = signal<Transaction[]>([
-    { title: 'Salário', value: 1500, type: TransactionType.INCOME },
-    { title: 'Aluguel', value: 1000, type: TransactionType.OUTCOME },
-    { title: 'Freelance', value: 500, type: TransactionType.INCOME },
-    { title: 'Supermercado', value: 500, type: TransactionType.OUTCOME },
+    // { title: 'Salário', value: 1500, type: TransactionType.INCOME },
+    // { title: 'Aluguel', value: 1000, type: TransactionType.OUTCOME },
+    // { title: 'Freelance', value: 500, type: TransactionType.INCOME },
+    // { title: 'Supermercado', value: 500, type: TransactionType.OUTCOME },
   ])
 
 }
