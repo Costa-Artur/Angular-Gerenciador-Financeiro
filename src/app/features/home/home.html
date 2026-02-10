@@ -1,1 +1,7 @@
 <app-balance [transactions]="transactions()"></app-balance>
+
+<ul>
+  @for (item of transactions(); track $index) {
+    <app-transaction-item [transaction]="item"></app-transaction-item>
+  }
+</ul>

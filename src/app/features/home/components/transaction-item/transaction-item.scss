@@ -1,0 +1,27 @@
+.card {
+  display: flex;
+  flex-direction: row;
+  padding: 18px;
+
+  .card__main-info {
+    gap: 8px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card__title {
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  .card__value {
+    font-size: 16px;
+  }
+
+  .card__actions {
+    display: flex;
+    justify-content: flex-end;
+    flex: 1;
+    gap: 8px;
+  }
+}
