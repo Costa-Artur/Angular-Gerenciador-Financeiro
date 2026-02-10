@@ -1,7 +1,14 @@
-<app-balance [transactions]="transactions()"></app-balance>
+<div class="container">
 
-@for (item of transactions(); track $index) {
-  <app-transaction-item [transaction]="item"></app-transaction-item>
-} @empty {
-  <app-no-transactions/>
-}
+  <app-balance [transactions]="transactions()"></app-balance>
+
+  <div class="transactions">
+    @for (item of transactions(); track $index) {
+      <app-transaction-item [transaction]="item"></app-transaction-item>
+    } @empty {
+      <app-no-transactions/>
+    }
+
+  </div>
+
+</div>
