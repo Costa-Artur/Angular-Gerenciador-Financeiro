@@ -8,6 +8,7 @@
 @use 'styles/theme-colors' as theme-colors;
 @use 'styles/_custom-colors.scss';
 @use 'styles/overrides/toolbar.scss';
+@use 'styles/overrides/snackbar.scss';
 
 html {
   @include mat.theme((
