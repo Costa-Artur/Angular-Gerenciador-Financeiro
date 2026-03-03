@@ -2,6 +2,10 @@
 
   <app-balance [transactions]="transactions()"></app-balance>
 
+  <div class="actions">
+    <a matButton="filled" routerLink="create">Adicionar Transação</a>
+  </div>
+
   <div class="transactions">
     @for (item of transactions(); track $index) {
       <app-transaction-item [transaction]="item"></app-transaction-item>
