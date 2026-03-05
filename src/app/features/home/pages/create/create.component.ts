@@ -6,11 +6,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { TransactionType } from '../../../../shared/transaction/enums/transaction-type';
 import { NgxMaskDirective } from 'ngx-mask';
-import { JsonPipe } from '@angular/common';
 import { TransactionsService } from '../../../../shared/transaction/services/transactions';
 import { TransactionPayload } from '../../../../shared/transaction/interfaces/transaction';
 import { Router } from '@angular/router';
-import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { FeedbackService } from '../../../../shared/feedback/services/feedback.service';
 
 @Component({
   selector: 'app-create',
@@ -30,7 +30,7 @@ export class CreateComponent {
 
   private transactionsService = inject(TransactionsService);
   private router = inject(Router);
-  private snackBar = inject(MatSnackBar);
+  private feedbackService = inject(FeedbackService);
 
   readonly transactionType = TransactionType;
 
@@ -59,11 +59,7 @@ export class CreateComponent {
 
     this.transactionsService.post(payload).subscribe({
       next: (transaction) => {
-        this.snackBar.open('Transação criada com sucesso!', 'Ok', {
-          horizontalPosition: 'center',
-          verticalPosition: 'top',
-          panelClass: ['snack-bar-success-feedback']
-        });
+        this.feedbackService.success('Transação criada com sucesso!');
         this.router.navigate(['/']);
       },
       error: (error) => {

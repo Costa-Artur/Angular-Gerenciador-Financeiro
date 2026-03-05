@@ -41,6 +41,18 @@
       "value": 15,
       "type": "income",
       "id": 7
+    },
+    {
+      "title": "teste",
+      "value": 15,
+      "type": "outcome",
+      "id": 8
+    },
+    {
+      "title": "teste cor snackbar",
+      "value": 20,
+      "type": "income",
+      "id": 9
     }
   ]
 }

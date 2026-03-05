@@ -5,8 +5,9 @@
   .snack-bar-success-feedback {
 
     @include mat.snack-bar-overrides((
-      button-color: orange,
-      container-color: red,
+      supporting-text-color: var(--mat-sys-on-surface),
+      button-color: var(--mat-sys-on-surface),
+      container-color: var(--custom-color-success),
     ));
 
   }
