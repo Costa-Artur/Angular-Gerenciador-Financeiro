@@ -7,10 +7,10 @@
       "type": "income"
     },
     {
-      "id": 2,
-      "title": "Aluguel",
-      "value": 1000,
-      "type": "outcome"
+      "title": "Aluguel teste",
+      "value": 1200,
+      "type": "outcome",
+      "id": 2
     },
     {
       "id": 3,
@@ -53,6 +53,18 @@
       "value": 20,
       "type": "income",
       "id": 9
+    },
+    {
+      "title": "teste",
+      "value": 15000,
+      "type": "income",
+      "id": 10
+    },
+    {
+      "title": "teste123",
+      "value": 152,
+      "type": "income",
+      "id": 11
     }
   ]
 }

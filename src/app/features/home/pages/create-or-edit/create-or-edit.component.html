@@ -1,12 +1,12 @@
-<form [formGroup]="form" (ngSubmit)="submit()">
+<form [formGroup]="form()" (ngSubmit)="submit()">
 
   <div class="mb-24">
     <mat-button-toggle-group formControlName="type">
-      <mat-button-toggle [value]="transactionType.INCOME">Gasto</mat-button-toggle>
-      <mat-button-toggle [value]="transactionType.OUTCOME">Ganho</mat-button-toggle>
+      <mat-button-toggle [value]="transactionType.OUTCOME">Gasto</mat-button-toggle>
+      <mat-button-toggle [value]="transactionType.INCOME">Ganho</mat-button-toggle>
     </mat-button-toggle-group>
 
-    @if (form.controls.type.invalid) {
+    @if (form().controls.type.invalid) {
       <mat-error>Campo Obrigatório</mat-error>
     }
   </div>
@@ -19,7 +19,7 @@
       formControlName="title"
       required
     />
-    @if (form.controls.title.invalid) {
+    @if (form().controls.title.invalid) {
       <mat-error>Campo Obrigatório</mat-error>
     }
   </mat-form-field>
@@ -34,14 +34,14 @@
       mask="separator.2"
     />
     <span matTextPrefix>R$&nbsp;&nbsp;</span>
-    @if (form.controls.value.invalid) {
+    @if (form().controls.value.invalid) {
       <mat-error>Campo Obrigatório</mat-error>
     }
   </mat-form-field>
 
 
   <div class="submit-container">
-    <button matButton="filled" type="submit" [disabled]="form.invalid">Salvar</button>
+    <button matButton="filled" type="submit" [disabled]="form().invalid">Salvar</button>
   </div>
 
 </form>
