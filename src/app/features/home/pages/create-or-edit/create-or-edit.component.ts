@@ -63,45 +63,24 @@ export class CreateOrEditComponent {
       type: this.form().value.type as TransactionType,
     }
 
-    if(this.isEdit()) {
-      this.transactionsService.put(this.transaction()!.id, payload).subscribe({
-        next: (transaction) => {
-          this.feedbackService.success('Transação atualizada com sucesso!');
-          this.router.navigate(['/']);
-        },
-        error: (error) => {
-          console.error(error);
-        }
-      });
-    } else  {
-      this.transactionsService.post(payload).subscribe({
-        next: (transaction) => {
-          this.feedbackService.success('Transação criada com sucesso!');
-          this.router.navigate(['/']);
-        },
-        error: (error) => {
-          console.error(error);
-        }
-      });
-    }
+    this.createOrEdit(payload).subscribe({
+      next: () => this.router.navigate(['/']),
+    });
   }
 
   private createOrEdit(payload: TransactionPayload) {
     if(this.isEdit()) {
-      return this.transactionsService.put(this.transaction()!.id, payload)
+      return this.transactionsService
+      .put(this.transaction()!.id, payload)
         .pipe(
           tap(() =>  this.feedbackService.success('Transação atualizada com sucesso!'))
         )
       } else  {
-      this.transactionsService.post(payload).subscribe({
-        next: (transaction) => {
-          this.feedbackService.success('Transação criada com sucesso!');
-          this.router.navigate(['/']);
-        },
-        error: (error) => {
-          console.error(error);
-        }
-      });
+      return this.transactionsService
+      .post(payload)
+        .pipe(
+          tap(() =>  this.feedbackService.success('Transação criada com sucesso!'))
+        )
     }
   }
 
