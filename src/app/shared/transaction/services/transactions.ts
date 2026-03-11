@@ -30,4 +30,8 @@ export class TransactionsService {
       payload
     );
   }
+
+  delete(id: number) {
+    return this.httpClient.delete(`http://localhost:3000/transactions/${id}`);
+  }
 }

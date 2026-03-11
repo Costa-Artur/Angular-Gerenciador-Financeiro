@@ -34,6 +34,17 @@ export class Home implements OnInit {
     this.router.navigate(['edit', transaction.id])
   }
 
+  remove(transaction: Transaction) {
+    this.transactionsService.delete(transaction.id!).subscribe({
+      next: () => {
+        this.transactions.update((transactions) => transactions.filter(t => t.id !== transaction.id));
+      },
+      error: err => console.error('Error deleting transaction', err)
+    });
+
+
+  }
+
   private getTransactions() {
     this.transactionsService.getAll().subscribe({
       next: transactions => this.transactions.set(transactions),

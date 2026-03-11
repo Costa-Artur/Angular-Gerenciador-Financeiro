@@ -1,12 +1,6 @@
 {
   "transactions": [
     {
-      "id": 1,
-      "title": "Salário",
-      "value": 1500,
-      "type": "income"
-    },
-    {
       "title": "Aluguel teste",
       "value": 1200,
       "type": "outcome",
@@ -35,36 +29,6 @@
       "value": 50000,
       "type": "income",
       "id": 6
-    },
-    {
-      "title": "teste",
-      "value": 15,
-      "type": "income",
-      "id": 7
-    },
-    {
-      "title": "teste",
-      "value": 15,
-      "type": "outcome",
-      "id": 8
-    },
-    {
-      "title": "teste cor snackbar",
-      "value": 20,
-      "type": "income",
-      "id": 9
-    },
-    {
-      "title": "teste",
-      "value": 15000,
-      "type": "income",
-      "id": 10
-    },
-    {
-      "title": "teste123",
-      "value": 152,
-      "type": "income",
-      "id": 11
     }
   ]
 }
