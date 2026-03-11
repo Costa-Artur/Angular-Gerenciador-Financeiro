@@ -44,8 +44,6 @@ export class Home implements OnInit {
       },
       error: err => console.error('Error deleting transaction', err)
     });
-
-
   }
 
   private removeTransactionFromArray(transaction: Transaction) {
