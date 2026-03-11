@@ -6,6 +6,7 @@ import { NoTransactions } from "./components/no-transactions/no-transactions";
 import { TransactionsService } from '../../shared/transaction/services/transactions';
 import { MatButtonModule } from '@angular/material/button';
 import { Router, RouterLink } from '@angular/router';
+import { FeedbackService } from '../../shared/feedback/services/feedback.service';
 
 @Component({
   selector: 'app-home',
@@ -22,6 +23,7 @@ import { Router, RouterLink } from '@angular/router';
 export class Home implements OnInit {
 
   private transactionsService = inject(TransactionsService);
+  private feedbackService = inject(FeedbackService);
   private router = inject(Router);
 
   transactions = signal<Transaction[]>([]);
@@ -37,12 +39,17 @@ export class Home implements OnInit {
   remove(transaction: Transaction) {
     this.transactionsService.delete(transaction.id!).subscribe({
       next: () => {
-        this.transactions.update((transactions) => transactions.filter(t => t.id !== transaction.id));
+        this.removeTransactionFromArray(transaction);
+        this.feedbackService.success('Transação removida com sucesso!');
       },
       error: err => console.error('Error deleting transaction', err)
     });
 
 
+  }
+
+  private removeTransactionFromArray(transaction: Transaction) {
+    this.transactions.update((transactions) => transactions.filter(t => t.id !== transaction.id));
   }
 
   private getTransactions() {
